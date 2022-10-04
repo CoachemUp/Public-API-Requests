@@ -107,7 +107,7 @@ header h1 {
 }
 
 .card-text {
-    font-size: 0.9em;
+    font-size: 0.8em;
     color: rgba(50, 50, 50, 0.7);
     margin: 7px auto;
     transition: .4s ease-out;
