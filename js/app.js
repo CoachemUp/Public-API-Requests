@@ -1,5 +1,6 @@
 let employees = [];
 const gallery = document.getElementById('gallery');
+
 // fetch data from API 
 fetch(`https://randomuser.me/api/?results=12&nat=us`)
     .then(res => res.json())
@@ -30,24 +31,14 @@ function displayEmployees() {
     });
     gallery.insertAdjacentHTML('beforeend', employeeHTML);
 
-    gallery.addEventListener('click', e => {
-        if (e.target !== gallery) {
-            const card = e.target.closest(".card");
-            const index = card.getAttribute('data-index');
-            displayModal(index);
-        }
-    });
 }
-
-
-
 
 function displayModal(index) {
     let { name, dob, phone, email, location: { city, street, state, postcode }, picture } = employees[index];
     let date = new Date(dob.date);
     let modalContainer =
-        `<div class='modal-container'data-backdrop="static" >
-            <div class="modal"  >
+        `<div class='modal-container' >
+            <div class="modal" >
                 <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
                 <div class="modal-info-container">
                     <img class="modal-img" src="${picture.large}" alt="profile picture">
@@ -65,17 +56,22 @@ function displayModal(index) {
     gallery.insertAdjacentHTML('beforeend', modalContainer);
 
     const modal = document.querySelector('.modal-container');
-    modal.addEventListener('click', (e) => {
-        if (e.target.matches('modal-close-btn') || !e.target.closest('modal')) {
+    gallery.addEventListener('click', (e) => {
+        if (e.target.matches('modal-close-btn') || !e.target.matches('modal')) {
             modal.remove();
         }
     });
 
+
 }
 
-
-
-
+gallery.addEventListener('click', e => {
+    if (e.target !== gallery && !e.target.matches('.modal-container')) {
+        const card = e.target.closest(".card");
+        const index = card.getAttribute('data-index');
+        displayModal(index);
+    }
+});
 
 
 
