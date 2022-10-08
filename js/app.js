@@ -66,12 +66,12 @@ function displayModal(index) {
 }
 
 gallery.addEventListener('click', e => {
-    if (e.target !== gallery && !e.target.matches('.modal-container')) {
+    if (e.target !== gallery && !e.target.closest('.modal-container')) {
         const card = e.target.closest(".card");
         const index = card.getAttribute('data-index');
         displayModal(index);
     }
 });
 
-
+//code adapted from https://teamtreehouse.com/library/javascript-search/javascript-search#downloads
 
