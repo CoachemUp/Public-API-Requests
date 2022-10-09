@@ -51,6 +51,7 @@ function displayModal(index) {
                     <p class="modal-text">Birthday:  ${((date.getMonth()) < 10 ? '0' : '') + (date.getMonth() + 1)}/${(date.getDate() < 10 ? '0' : '') + (date.getDate())}/${(date.getFullYear())}</p>
                 </div>
             </div>
+                
         </div>`;
 
     gallery.insertAdjacentHTML('beforeend', modalContainer);
@@ -61,6 +62,10 @@ function displayModal(index) {
             modal.remove();
         }
     });
+
+
+    
+
 
 
 }
@@ -74,4 +79,15 @@ gallery.addEventListener('click', e => {
 });
 
 //code adapted from https://teamtreehouse.com/library/javascript-search/javascript-search#downloads
-
+const inputSearch = document.getElementById('search-input');
+inputSearch.addEventListener('keyup', e => {
+    let searchValue = e.target.value.toLowerCase();
+    let employeeSearch = document.querySelectorAll('h3.card-name');
+    employeeSearch.forEach(employeeSearch => {
+        if (employeeSearch.textContent.toLowerCase().includes(searchValue)) {
+            employeeSearch.parentNode.parentNode.style.display = 'block';
+        } else {
+            employeeSearch.parentNode.parentNode.style.display = 'none';
+        }
+    });
+});
