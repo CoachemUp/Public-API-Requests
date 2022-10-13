@@ -11,7 +11,9 @@ fetch(`https://randomuser.me/api/?results=12&nat=us`)
         displayEmployees(employees));
 
 
-
+/* ============================================================================================
+*         Function to display the 12 random users from the API 
+============================================================================================= */
 function displayEmployees() {
     let employeeHTML = '';
     employees.forEach((data, index) => {
@@ -33,6 +35,9 @@ function displayEmployees() {
 
 }
 
+/* ============================================================================================
+*         Function to display the modal when an employee is selected
+============================================================================================= */
 function displayModal(index) {
     let { name, dob, phone, email, location: { city, street, state, postcode }, picture } = employees[index];
     let date = new Date(dob.date);
@@ -55,7 +60,7 @@ function displayModal(index) {
         </div>`;
 
     gallery.insertAdjacentHTML('beforeend', modalContainer);
-
+//Event listener to close Modal and close it
     const modal = document.querySelector('.modal-container');
     gallery.addEventListener('click', (e) => {
         if (e.target.matches('modal-close-btn') || !e.target.matches('modal')) {
@@ -69,7 +74,7 @@ function displayModal(index) {
 
 
 }
-
+//event listener to close modal
 gallery.addEventListener('click', e => {
     if (e.target !== gallery && !e.target.closest('.modal-container')) {
         const card = e.target.closest(".card");
