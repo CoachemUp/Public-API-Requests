@@ -15,5 +15,4 @@ This project will demonstrate working with public APIs, making API requests, and
 
 Extra functions or styles added for exceeds grade
     1. A search feature has been added so that students can be filtered by name.
-    2. Functionality has been added to switch back and forth between employees when the detail modal window is open.
-    3. modal background color changed to gray and overlay was changed to red
+    2. modal background color changed to gray and overlay was changed to red
