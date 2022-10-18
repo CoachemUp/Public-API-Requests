@@ -16,3 +16,5 @@ This project will demonstrate working with public APIs, making API requests, and
 Extra functions or styles added for exceeds grade
     1. A search feature has been added so that students can be filtered by name.
     2. modal background color changed to gray and overlay was changed to red
+    
+https://coachemup.github.io/Public-API-Requests/
